@@ -1,4 +1,4 @@
-import { getPosts, addPost, getUserPosts } from "./api.js";
+import { getPosts, addPost, getUserPosts, likePost, dislikePost } from "./api.js";
 import { renderAddPostPageComponent } from "./components/add-post-page-component.js";
 import { renderAuthPageComponent } from "./components/auth-page-component.js";
 import {
@@ -21,6 +21,14 @@ export let user = getUserFromLocalStorage();
 export let page = null;
 export let posts = [];
 export let currentUserData = null;
+
+// Функция для обновления поста в массиве posts
+export const updatePost = (updatedPost) => {
+  const postIndex = posts.findIndex(post => post.id === updatedPost.id);
+  if (postIndex !== -1) {
+    posts[postIndex] = updatedPost;
+  }
+};
 
 const getToken = () => {
   const token = user ? `Bearer ${user.token}` : undefined;
