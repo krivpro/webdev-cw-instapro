@@ -32,7 +32,6 @@ export const updatePost = (updatedPost) => {
 
 const getToken = () => {
   const token = user ? `Bearer ${user.token}` : undefined;
-  console.log("Токен пользователя:", token);
   return token;
 };
 

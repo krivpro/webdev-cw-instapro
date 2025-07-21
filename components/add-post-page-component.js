@@ -57,18 +57,11 @@ export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
       }
     
       // Проверяем, что данные не содержат проблемных символов
-      console.log("Описание:", JSON.stringify(description));
-      console.log("URL изображения:", JSON.stringify(imageUrl));
     
       onAddPostClick({
         description,
         imageUrl,
       });
-
-      // onAddPostClick({
-      //   description: "Тестовый пост",
-      //   imageUrl: "https://via.placeholder.com/300x200",
-      // });
     });
   };
 

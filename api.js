@@ -69,8 +69,6 @@ export function uploadImage({ file }) {
 }
 
 export function addPost({ description, imageUrl, token }) {
-  console.log("Отправляем данные:", { description, imageUrl, token });
-  
   // Очищаем данные от лишних символов
   const cleanDescription = description.trim();
   const cleanImageUrl = imageUrl.trim();
@@ -81,7 +79,6 @@ export function addPost({ description, imageUrl, token }) {
   };
   
   const jsonString = JSON.stringify(requestBody);
-  console.log("JSON для отправки:", jsonString);
   
   return fetch(postsHost, {
     method: "POST",
@@ -91,11 +88,8 @@ export function addPost({ description, imageUrl, token }) {
     body: jsonString,
   })
     .then((response) => {
-      console.log("Ответ сервера:", response.status, response.statusText);
-      
       if (response.status === 400) {
         return response.json().then(errorData => {
-          console.log("Детали ошибки:", errorData);
           throw new Error(errorData.error || "Неверные данные поста");
         });
       }

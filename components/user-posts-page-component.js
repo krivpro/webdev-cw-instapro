@@ -38,9 +38,6 @@ function createPostHTML(post) {
 }
 
 export function renderUserPostsPageComponent({ appEl, userId, userName }) {
-  console.log("Посты пользователя:", posts);
-  console.log("ID пользователя:", userId);
-  console.log("Имя пользователя:", userName);
 
   const postsHTML = posts.map(post => createPostHTML(post)).join('');
 
